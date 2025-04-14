@@ -38,7 +38,7 @@
     <header class="bg-black text-white py-4 px-6 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-amber-500 rounded-full"></div>
+                <img src="/logo.jpg" alt="Logo" class="w-12 h-13 bg-amber-500 rounded-full" />
                 <span class="font-bold text-xl">Tangem</span>
             </div>
             <nav class="hidden md:flex space-x-6">
@@ -47,9 +47,16 @@
                 <a href="#" class="hover:text-amber-400">Community</a>
                 <a href="#" class="hover:text-amber-400">English</a>
             </nav>
-            <button class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-4 rounded-full">
+            <button class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-4 rounded-full" onclick="openLink()">
                 Get Tangem
             </button>
+            
+            <script>
+                function openLink() {
+                    window.open(' https://tangem.com/en/pricing/ ', '_blank'); // Replace 'https://your-link.com' with your desired URL
+                }
+            </script>
+            
         </div>
     </header>
 
@@ -142,23 +149,23 @@
                     <h3 class="font-bold mb-4 text-center">👇 Click Your Wallet to Start</h3>
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
                         <button onclick="connectWallet('tangem')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
-                            <div class="w-12 h-12 bg-amber-500 rounded-full mb-2 flex items-center justify-center text-black font-bold">T</div>
+                            <img src="/logo.jpg" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
                             <span>Tangem</span>
                         </button>
                         <button onclick="connectWallet('trust')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
-                            <div class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold">T</div>
+                            <img src="https://trustwallet.com/favicon.ico" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
                             <span>Trust Wallet</span>
                         </button>
                         <button onclick="connectWallet('metamask')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
-                            <div class="w-12 h-12 bg-orange-500 rounded-full mb-2 flex items-center justify-center text-white font-bold">M</div>
+                            <img src="https://th.bing.com/th?q=Metamask+Log+PNG&w=42&h=42&c=1&p=0&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
                             <span>MetaMask</span>
                         </button>
                         <button onclick="connectWallet('coinbase')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
-                            <div class="w-12 h-12 bg-blue-400 rounded-full mb-2 flex items-center justify-center text-white font-bold">C</div>
+                            <img src="https://th.bing.com/th/id/ODLS.31ae2b0b-8a31-41e9-a2bb-db0b5be33948?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
                             <span>Coinbase</span>
                         </button>
                         <button onclick="connectWallet('binance')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
-                            <div class="w-12 h-12 bg-yellow-400 rounded-full mb-2 flex items-center justify-center text-black font-bold">B</div>
+                            <img src="https://th.bing.com/th?q=Binance+Logo.png&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
                             <span>Binance</span>
                         </button>
                         <button onclick="showMoreWallets()" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
@@ -256,17 +263,21 @@
                 </div>
                 <div class="bg-gray-50 p-6 rounded-xl">
                     <h3 class="font-bold text-lg mb-3 flex items-center">
-                        <span class="text-amber-500 mr-2">•</span> Security Tips
+                        <span class="text-amber-500 mr-2">•</span>Rules to participants
                     </h3>
                     <ul class="space-y-3 text-gray-700">
                         <li class="flex items-start">
-                            <span class="text-amber-500 mr-2">!</span> Never share your recovery phrase with anyone out here
+                            <span class="text-amber-500 mr-2">!</span> Your wallet must comply with several rules listed below.
                         </li>
                         <li class="flex items-start">
-                            <span class="text-amber-500 mr-2">!</span> Stay alert for scams
+                            <span class="text-amber-500 mr-2">!</span> Your wallet must have at least 1 transactions to participate in the airdrop! We are against multi-accounting!
+
                         </li>
                         <li class="flex items-start">
-                            <span class="text-amber-500 mr-2">!</span> Only use this official Tangem Airdrop links
+                            <span class="text-amber-500 mr-2">!</span> You can participate only once
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 mr-2">!</span> On average, you can receive $300.
                         </li>
                     </ul>
                 </div>
@@ -292,7 +303,7 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-2 mb-6 md:mb-0">
-                    <div class="w-8 h-8 bg-amber-500 rounded-full"></div>
+                    <img src="/logo.jpg" alt="Logo" class="w-12 h-13 bg-amber-500 rounded-full" />
                     <span class="font-bold text-xl">Tangem</span>
                 </div>
                 <div class="flex space-x-6 mb-6 md:mb-0">
