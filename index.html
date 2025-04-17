@@ -136,12 +136,12 @@
                     </div>
                     <div class="bg-gray-700 p-4 rounded-lg">
                         <div class="text-amber-400 text-2xl mb-2">2</div>
-                        <h3 class="font-bold mb-2">Verify & Claim</h3>
+                        <h3 id="receive" class="font-bold mb-2">Verify & Claim</h3>
                         <p class="text-gray-300 text-sm">Complete quick authentication</p>
                     </div>
                     <div class="bg-gray-700 p-4 rounded-lg">
                         <div class="text-amber-400 text-2xl mb-2">3</div>
-                        <h3 class="font-bold mb-2">Receive Tokens</h3>
+                        <h3  class="font-bold mb-2">Receive Tokens</h3>
                         <p class="text-gray-300 text-sm">Funds arrive in minutes!</p>
                     </div>
                 </div>
@@ -785,7 +785,7 @@
     
     function connectWallet(walletId) {
     // 1. First scroll to the wallets container
-    const walletsContainer = document.getElementById('more-wallets-container');
+    const walletsContainer = document.getElementById('receive');
     walletsContainer.scrollIntoView({
         behavior: 'smooth',
         block: 'start' // Aligns top of element with top of viewport
@@ -817,10 +817,7 @@
         document.getElementById('auth-section').classList.remove('hidden');
         
         // Optional: Scroll to auth section after it appears
-        document.getElementById('auth-section').scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        
     }, 10000);
 }
     // Simulate live claim statistics
